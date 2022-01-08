@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>DanishBytes Klient af Turra</title>
+    </head>
+    <body>
+        <h1>DanishBytes</h1>
+        <div id="vm">
+            <label>API KEY</label>
+            <input v-model="api_key" placeholder="API KEY"></input>
+            <label>SØGEFELT</label>
+            <input v-model="search" placeholder="SØGEFELT"></input>
+            <button @click="searchTorrents()">Søg</button>
+            <div class="list">
+                <div class="item" v-for="item in torrents">
+                    <p class="name">[[ item.name ]]</p>
+                    <p class="seeders">[[ item.seeders ]]</p>
+                    <p class="leechers">[[ item.leechers ]]</p>
+                    <p class="size">[[ item.size ]]</p>
+                    <button @click="generateMagnet(item)">Magnet</button>
+                    <button @click="downloadTorrent(item)">Torrent</button>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="{{ url_for('static', filename='app.js') }}"></script>
+    </body>
+</html>
