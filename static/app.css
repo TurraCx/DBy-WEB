@@ -10,11 +10,14 @@ body {
 #vm {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 nav {
     border: 0px solid rgba(111, 114, 125, .1);
     border-bottom-width: 1px;
-    padding: 0rem 0rem 0rem 27rem;
+    width: 50%;
 }
 nav > h3 > a, nav > h3 > a:visited, nav > h3 > a:hover {
     text-decoration: none;
@@ -22,7 +25,6 @@ nav > h3 > a, nav > h3 > a:visited, nav > h3 > a:hover {
 }
 header {
     width: 50%;
-    padding: 5rem 0rem 5rem 32rem;
 }
 header > .announcer {
     width: 30%;
@@ -37,4 +39,67 @@ header > h1 {
 header > h2 {
     font-weight: 200;
     margin: 0;
+}
+header .fields {
+    display: flex;
+    flex-direction: column;
+}
+header .fields > * {
+    margin: 1rem;
+}
+header .fields input {
+    width: 30%;
+    border: 0px #c9d1d9 solid;
+        border-bottom-width: 1px;
+    background: none;
+    color: white;
+}
+.list {
+    border: 1px solid rgba(0,0,0,.5);
+    padding: 1rem;
+    width: 50%;
+    margin: 2rem;
+}
+.list .item img {
+    height: 150px;
+}
+.list .item {
+    display: flex;
+    background: rgba(0,0,0,.3);
+    padding: 1rem;
+}
+.list .item .info {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    tab-size: 2;
+}
+.list .item .info > * {
+    margin: 0;
+}
+.list .item .info .extra-info {
+    display:flex;
+}
+.list .item .info .extra-info > * {
+    margin: 1rem;
+}
+.list .item .info .extra-info > * {
+    display: flex;
+    width: 2rem;
+    justify-content: space-around;
+    align-items: center;
+}
+.list .item .info .extra-info > .seeders svg {
+    color: lightgreen;
+}
+.list .item .info .extra-info > .leechers svg {
+    color: darkred;
+}
+.list .item .info > .name {
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+}
+.list .item .info .buttons {
+    display: flex;
 }

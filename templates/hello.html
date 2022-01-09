@@ -1,7 +1,10 @@
 <html>
     <head>
         <title>DanishBytes Klient af Turra</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='app.css') }}"></link>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='app.css') }}"/>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     </head>
     <body>
         <div id="vm">
@@ -14,18 +17,29 @@
                 </div>
                 <h1>DanishBytes Downloader</h1>
                 <h2>Med denne hjemmeside skal du blot indtaste din API nøgle, og derved kan du søge på diverse forskellige torrents fra DanishBytes.</h2>
-                <input v-model="api_key" placeholder="Indsæt din API nøgle her..."/>
-                <input v-model="search" placeholder="Søgefelt">
-                <button @click="searchTorrents()">Søg</button>
+                <div class="fields">
+                    <input v-model="api_key" placeholder="Indsæt din API nøgle her..."/>
+                    <div class="search">
+                        <input v-model="search" placeholder="Søgefelt">
+                        <button @click="searchTorrents()">Søg</button>
+                    </div>
+                </div>
             </header>
             <div class="list">
                 <div class="item" v-for="item in torrents">
-                    <p class="name">[[ item.name ]]</p>
-                    <p class="seeders">[[ item.seeders ]]</p>
-                    <p class="leechers">[[ item.leechers ]]</p>
-                    <p class="size">[[ item.size ]]</p>
-                    <button @click="generateMagnet(item)">Magnet</button>
-                    <button @click="downloadTorrent(item)">Torrent</button>
+                    <img :src="item.poster_image" :alt="item.name"/>
+                    <div class="info">
+                        <p class="name">[[ item.name ]]</p>
+                        <div class="extra-info">
+                            <p class="seeders">[[ item.seeders ]]<i class="fas fa-arrow-up"></i></p>
+                            <p class="leechers">[[ item.leechers ]]<i class="fas fa-arrow-down"></i></p>
+                            <p class="size">[[ Math.round(item.size/1024/1024/1024) ]] GB</p>
+                        </div>
+                        <div class="buttons">
+                            <button @click="generateMagnet(item)">Magnet</button>
+                            <button @click="downloadTorrent(item)">Torrent</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
