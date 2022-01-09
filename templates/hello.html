@@ -1,15 +1,23 @@
 <html>
     <head>
         <title>DanishBytes Klient af Turra</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='app.css') }}"></link>
     </head>
     <body>
-        <h1>DanishBytes</h1>
         <div id="vm">
-            <label>API KEY</label>
-            <input v-model="api_key" placeholder="API KEY"></input>
-            <label>SØGEFELT</label>
-            <input v-model="search" placeholder="SØGEFELT"></input>
-            <button @click="searchTorrents()">Søg</button>
+            <nav>
+                <h3 v-if="mirrors.length > 0"><a :href="mirrors[0].link">[[ mirrors[0].name ]]</a></h3>
+            </nav>
+            <header>
+                <div class="announcer">
+                    <p><span>NYT</span>[[ news ]]</p>
+                </div>
+                <h1>DanishBytes Downloader</h1>
+                <h2>Med denne hjemmeside skal du blot indtaste din API nøgle, og derved kan du søge på diverse forskellige torrents fra DanishBytes.</h2>
+                <input v-model="api_key" placeholder="Indsæt din API nøgle her..."/>
+                <input v-model="search" placeholder="Søgefelt">
+                <button @click="searchTorrents()">Søg</button>
+            </header>
             <div class="list">
                 <div class="item" v-for="item in torrents">
                     <p class="name">[[ item.name ]]</p>

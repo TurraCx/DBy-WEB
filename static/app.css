@@ -1,0 +1,40 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: rgba(28,32,38,1);
+    color: rgba(212,214,223,1);
+    font-family: "Sequel Sans VF Head", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin: 0;
+}
+#vm {
+    width: 100%;
+    height: 100%;
+}
+nav {
+    border: 0px solid rgba(111, 114, 125, .1);
+    border-bottom-width: 1px;
+    padding: 0rem 0rem 0rem 27rem;
+}
+nav > h3 > a, nav > h3 > a:visited, nav > h3 > a:hover {
+    text-decoration: none;
+    color: rgba(212,214,223,1);
+}
+header {
+    width: 50%;
+    padding: 5rem 0rem 5rem 32rem;
+}
+header > .announcer {
+    width: 30%;
+}
+header > h1 {
+    color: rgba(255,255,255,1);
+    font-size: 3.75rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin: 0;
+}
+header > h2 {
+    font-weight: 200;
+    margin: 0;
+}
