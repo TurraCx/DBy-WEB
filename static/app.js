@@ -24,7 +24,7 @@ const vm = new Vue({
             if (this.api_key.length > 0) {
                 axios.post('/search', { search: this.search, api_key: this.api_key }, { headers: { 'Content-Type': 'application/json' } }).then(resp => {
                     this.torrents = resp.data.torrents;
-                    this.rss_key = resp.data.rss_key;
+                    this.rss_key = resp.data.rsskey;
                 });
             }
         },
